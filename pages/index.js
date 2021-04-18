@@ -47,6 +47,7 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+          <div id="botContainer" className="dumbor-container closed"></div>
         </div>
       </main>
 
@@ -60,6 +61,35 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
+      <script src="http://localhost:3001/dumbot-distribute.js" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+      window.addEventListener("load", function(){
+        const botContainer = document.getElementById("botContainer");
+        DumbotExtApp({
+          botkey: "KJY1Q5sGoyvTHYj4C8Bn-",
+          initiallyClosed:true,
+          header:{
+            icon: "Horton",
+            text: " Welcome to your fantastic bot!",
+          },
+          allowClose: true,
+          onToggle: function(opened){
+            if(opened) {
+              botContainer.classList.remove("closed");
+              botContainer.classList.add("opened");
+            } else {
+              botContainer.classList.remove("opened");
+              botContainer.classList.add("closed");
+            }
+          }
+         }).render('#botContainer');
+    });
+    
+      `,
+        }}
+      ></script>
     </div>
   )
 }
