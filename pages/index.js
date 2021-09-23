@@ -61,14 +61,14 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-      <script src="http://localhost:3001/dumbot-distribute.js" />
+      <script src="http://localhost:3000/dumbot-distribute.js" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
       window.addEventListener("load", function(){
         const botContainer = document.getElementById("botContainer");
         DumbotExtApp({
-          botkey: "KJY1Q5sGoyvTHYj4C8Bn-",
+          botkey: "363onS5ulLAXj-j_K0n-o",
           initiallyClosed:true,
           header:{
             icon: "Horton",
