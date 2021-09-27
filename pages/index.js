@@ -48,6 +48,7 @@ export default function Home() {
             </p>
           </a>
           <div id="botContainer" className="dumbor-container closed"></div>
+          {/* <div id="botContainer" className="db2"></div> */}
         </div>
       </main>
 
@@ -61,7 +62,7 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-      <script src="http://localhost:3000/dumbot-distribute.js" />
+      <script src="http://localhost:9000/dumbot-distribute.js" />
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -70,10 +71,6 @@ export default function Home() {
         DumbotExtApp({
           botkey: "363onS5ulLAXj-j_K0n-o",
           initiallyClosed:true,
-          header:{
-            icon: "Horton",
-            text: " Welcome to your fantastic bot!",
-          },
           allowClose: true,
           onToggle: function(opened){
             if(opened) {
@@ -83,7 +80,44 @@ export default function Home() {
               botContainer.classList.remove("opened");
               botContainer.classList.add("closed");
             }
+          },
+          theme: {
+           // botBackground: "linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)",
+            botShadow: "unset",
+            fontFamily: "monospace",
+            botBubbleColor: "red",
+            botFontColor: "#fff",
+            userBubbleColor: "yellow",
+            userFontColor: "blue",
+            bubbleFont: "14px",
+            bubbleMaxWidth: "50%",
+            bubbleBoxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.15)",
+            bubblePadding: "12px",
+            optionsColor: "#7D4CDB",
+            userAvatarBg: "#fff",
+            botAvatarBg: "#fff",
+            userAvatarColor: "#4a4d70",
+            botAvatarColor: "#4a4d70",
+            accentColor: "orange",
+            focusColor: "orange",
+            borderRadius: "10px",
+            headerHeight: "100px",
+            headerLogoSize:"40px",
+            headerBgColor: "orange",
+            headerLogoBgColor:"#fff",
+            headerFontColor: "#fff",
+            headerFontSize: "16px",
+            headerText:"Header text coming from hosting site!",
+            headerTextAlign:"center",
+            footerBgColor: "orange",
+            footerFontColor:"#fff",
+            footerHeight:"65px",
+            footerFontSize:"12px",
+            footerText:"Footer text coming from hosting site!",
+            footerTextAlign:"center",
+            inputBoxBgColor:"gray"
           }
+
          }).render('#botContainer');
     });
     
