@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -58,7 +58,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
@@ -69,7 +69,7 @@ export default function Home() {
       window.addEventListener("load", function(){
         const botContainer = document.getElementById("botContainer");
         DumbotExtApp({
-          botkey: "363onS5ulLAXj-j_K0n-o",
+          botkey: "q1P_-mNj8-t99LMvS_5I9",
           initiallyClosed:true,
           allowClose: true,
           onToggle: function(opened){
@@ -83,39 +83,44 @@ export default function Home() {
           },
           theme: {
            // botBackground: "linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)",
-            botShadow: "unset",
-            fontFamily: "monospace",
-            botBubbleColor: "red",
-            botFontColor: "#fff",
-            userBubbleColor: "yellow",
-            userFontColor: "blue",
-            bubbleFont: "14px",
-            bubbleMaxWidth: "50%",
-            bubbleBoxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.15)",
-            bubblePadding: "12px",
-            optionsColor: "#7D4CDB",
-            userAvatarBg: "#fff",
-            botAvatarBg: "#fff",
-            userAvatarColor: "#4a4d70",
-            botAvatarColor: "#4a4d70",
-            accentColor: "orange",
-            focusColor: "orange",
-            borderRadius: "10px",
-            headerHeight: "100px",
-            headerLogoSize:"40px",
-            headerBgColor: "orange",
-            headerLogoBgColor:"#fff",
-            headerFontColor: "#fff",
-            headerFontSize: "16px",
-            headerText:"Header text coming from hosting site!",
-            headerTextAlign:"center",
-            footerBgColor: "orange",
-            footerFontColor:"#fff",
-            footerHeight:"65px",
-            footerFontSize:"12px",
-            footerText:"Footer text coming from hosting site!",
-            footerTextAlign:"center",
-            inputBoxBgColor:"gray"
+            // botShadow: "unset",
+            // fontFamily: "monospace",
+            // botBubbleColor: "red",
+            // botFontColor: "#fff",
+            // userBubbleColor: "yellow",
+            // userFontColor: "blue",
+            // bubbleFont: "14px",
+            // bubbleMaxWidth: "50%",
+            // bubbleBoxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.15)",
+            // bubblePadding: "12px",
+            // optionsColor: "#7D4CDB",
+            // userAvatarBg: "#fff",
+            // botAvatarBg: "#fff",
+            // userAvatarColor: "#4a4d70",
+            // botAvatarColor: "#4a4d70",
+            // accentColor: "orange",
+            // focusColor: "orange",
+            // borderRadius: "10px",
+            // headerHeight: "100px",
+            // headerLogoSize:"40px",
+            // headerBgColor: "orange",
+            // headerLogoBgColor:"#fff",
+            // headerFontColor: "#fff",
+            // headerFontSize: "16px",
+            // headerText:"Header text coming from hosting site!",
+            // headerTextAlign:"center",
+            // footerBgColor: "orange",
+            // footerFontColor:"#fff",
+            // footerHeight:"65px",
+            // footerFontSize:"12px",
+            // footerText:"Footer text coming from hosting site!",
+            // footerTextAlign:"center",
+            // inputBoxBgColor:"gray"
+          },
+          externalVariables: {
+            test: {
+              names:['pietro','tommaso','filippo']
+            }
           }
 
          }).render('#botContainer');
@@ -125,5 +130,5 @@ export default function Home() {
         }}
       ></script>
     </div>
-  )
+  );
 }
