@@ -1,7 +1,144 @@
 import Head from "next/head";
+import * as React from "react";
+import ReactDOM from "react-dom";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [Dumbot, setDumbot] = React.useState(null);
+  React.useEffect(() => {
+    // rgb(0 0 0 / 20%) 0px -1px 14px 0px
+    // var myLandbot = new Landbot.Livechat({
+    //   configUrl:
+    //     "https://chats.landbot.io/v3/H-1012257-80E97G8O8QQ65MYF/index.json",
+    // });
+  });
+  React.useEffect(() => {
+    let DumbotC = DumbotExtApp.driver("react", {
+      React: React,
+      ReactDOM: ReactDOM,
+    });
+
+    setDumbot(
+      <DumbotC
+        botkey={"q1P_-mNj8-t99LMvS_5I9"}
+        initiallyClosed={false}
+        allowClose={true}
+        trigger={{
+          size: "30px",
+        }}
+        mode="chat"
+        externalVariables={{
+          test: {
+            names: ["pietro", "tommaso", "filippo"],
+          },
+        }}
+        theme={{
+          global: {
+            colors: {
+              // botBackground: "gray",
+              // botBubbleColor: "red",
+              // botFontColor: "#fff",
+              // botUserBubbleColor: "yellow",
+              // botUserFontColor: "cyan",
+              // optionsColor: "#7D4CDB",
+              // botUserAvatarBg: "red",
+              // botAvatarBg: "green",
+              // botFocusColor: "orange",
+              // botHeaderLogoBgColor: "yellow",
+              // botHeaderBgColor: "lightblue",
+              // botHeaderFontColor: "yellow",
+              // botFooterBgColor: "lightblue",
+              // botFooterFontColor: "red",
+              // botAvatarClockFontColor: "green",
+              // botTriggerButtonHoverColor: "orange",
+              // botTriggerButtonColor: "green",
+              // botTriggerButtonBackgroundColor: "red",
+              // botInputControlsFontColor: "orange",
+              // botInputBoxBgColor: "blue",
+              // botCloseButtonBgColor: "red",
+              // botBackButtonBgColor: "yellow",
+              // botCloseButtonFontColor: "orange",
+              // botBackButtonFontColor: "orange",
+            },
+          },
+          bot: {
+            borderRadius: "10px",
+            fontFamily: "courier",
+            // bubbleFontSize: "20px",
+            // bubbleMaxWidth: "100%",
+            // bubbleBoxShadow: "0 3px 5px 0 rgba(0, 0, 0, 0.90)",
+            // bubblePxRadius: "18px",
+            // bubblePadding: "12px",
+            // headerHeight: "100px",
+            // headerLogoSize: "40px",
+            // headerFontSize: "16px",
+            // headerText: "Welcome to this amazing experience",
+            // headerTextAlign: "center",
+            // footerHeight: "65px",
+            // footerFontSize: "30px",
+            // footerText: "Powered by Dumbot ttttt",
+            // footerTextAlign: "center",
+            // finalMessageContent: "Powered by mmmm!",
+            // messageDelay: 1000,
+            // avatarSize: "50px",
+            // disableAvatars: true,
+            // allowRestartOnEnd: false,
+            // bubbleAnimationDuration: "0.5s",
+            maxBotColumnSize: "800px",
+            // minBotColumnSize: "300px",
+            avatarClock: false,
+          },
+        }}
+        width="100%"
+        height="100%"
+        onCallHost={async () => {
+          const res = await fetch("https://gorest.co.in/public/v1/users");
+          return await res.json();
+        }}
+        onToggle={(opened) => {}}
+      />
+    );
+    // DumbotExtApp({
+    //   botkey: "q1P_-mNj8-t99LMvS_5I9",
+    //   initiallyClosed: false,
+    //   allowClose: true,
+    //   mode: "inline",
+    //   trigger: {
+    //     size: "30px",
+    //   },
+    //   width: "100%",
+    //   height: "100%",
+    //   onToggle: function (opened) {
+    //     // if (opened) {
+    //     //   debugger;
+    //     //   botContainer.classList.remove("closed");
+    //     //   botContainer.classList.add("opened");
+    //     // } else {
+    //     //   botContainer.classList.remove("opened");
+    //     //   botContainer.classList.add("closed");
+    //     // }
+    //   },
+    //   onCallHost: async () => {
+    //     const res = await fetch("https://gorest.co.in/public/v1/users");
+    //     if (res.ok) {
+    //       return await res.json();
+    //     }
+
+    //     return {};
+    //   },
+
+    //   theme: {
+    //     // botBackground: "linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)",
+    //     // botShadow: "unset",
+
+    //   },
+    //   externalVariables: {
+    //     test: {
+    //       names: ["pietro", "tommaso", "filippo"],
+    //     },
+    //   },
+    // }).render("#botContainer");
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -47,8 +184,9 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-          <div id="botContainer" className="dumbor-container closed"></div>
-          {/* <div id="botContainer" className="db2"></div> */}
+
+          <div id="botContainer">{Dumbot}</div>
+          {/* <div id="botContainer" className="dumbor-container closed"></div> */}
         </div>
       </main>
 
@@ -63,72 +201,10 @@ export default function Home() {
         </a>
       </footer>
       <script src="http://localhost:9000/dumbot-distribute.js" />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-      window.addEventListener("load", function(){
-        const botContainer = document.getElementById("botContainer");
-        DumbotExtApp({
-          botkey: "q1P_-mNj8-t99LMvS_5I9",
-          initiallyClosed:true,
-          allowClose: true,
-          onToggle: function(opened){
-            if(opened) {
-              botContainer.classList.remove("closed");
-              botContainer.classList.add("opened");
-            } else {
-              botContainer.classList.remove("opened");
-              botContainer.classList.add("closed");
-            }
-          },
-          theme: {
-           // botBackground: "linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)",
-            // botShadow: "unset",
-            // fontFamily: "monospace",
-            // botBubbleColor: "red",
-            // botFontColor: "#fff",
-            // userBubbleColor: "yellow",
-            // userFontColor: "blue",
-            // bubbleFont: "14px",
-            // bubbleMaxWidth: "50%",
-            // bubbleBoxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.15)",
-            // bubblePadding: "12px",
-            // optionsColor: "#7D4CDB",
-            // userAvatarBg: "#fff",
-            // botAvatarBg: "#fff",
-            // userAvatarColor: "#4a4d70",
-            // botAvatarColor: "#4a4d70",
-            // accentColor: "orange",
-            // focusColor: "orange",
-            // borderRadius: "10px",
-            // headerHeight: "100px",
-            // headerLogoSize:"40px",
-            // headerBgColor: "orange",
-            // headerLogoBgColor:"#fff",
-            // headerFontColor: "#fff",
-            // headerFontSize: "16px",
-            // headerText:"Header text coming from hosting site!",
-            // headerTextAlign:"center",
-            // footerBgColor: "orange",
-            // footerFontColor:"#fff",
-            // footerHeight:"65px",
-            // footerFontSize:"12px",
-            // footerText:"Footer text coming from hosting site!",
-            // footerTextAlign:"center",
-            // inputBoxBgColor:"gray"
-          },
-          externalVariables: {
-            test: {
-              names:['pietro','tommaso','filippo']
-            }
-          }
-
-         }).render('#botContainer');
-    });
-    
-      `,
-        }}
-      ></script>
+      {/* <script
+        SameSite="None; Secure"
+        src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"
+      ></script> */}
     </div>
   );
 }
