@@ -20,20 +20,90 @@ export default function Home() {
 
     setDumbot(
       <DumbotC
-        botkey={"q1P_-mNj8-t99LMvS_5I9"}
+        botkey={"SPFj05jqH34LaV5vzV4hh"}
         initiallyClosed={false}
         allowClose={true}
         trigger={{
           size: "30px",
         }}
-        mode="chat"
+        mode="popup"
         externalVariables={{
           test: {
             names: ["pietro", "tommaso", "filippo"],
           },
         }}
+        onStateChanged={async (state) => {
+          console.log("BOT STATE CHANGED", state);
+        }}
+        onBotFinished={(state) => {
+          console.log("BOT FINISHED", state);
+        }}
+        onUserAction={(answer) => {
+          console.log("GETTINMG USER ANSWER FROM BOT", answer);
+        }}
+        onSendAttachments={(files) => {
+          console.log("GETTINMG FILES FROM BOT", files);
+        }}
         theme={{
           global: {
+            // font: {
+            //   family: "'Comforter'",
+            //   size: "20px",
+            //   face: `/* cyrillic */
+            //   @font-face {
+            //     font-family: 'Comforter';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/comforter/v1/H4clBXOCl8nQnlaql3Qq65u9uqc.woff2) format('woff2');
+            //     unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+            //   }
+            //   /* vietnamese */
+            //   @font-face {
+            //     font-family: 'Comforter';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/comforter/v1/H4clBXOCl8nQnlaql3Qq4Ju9uqc.woff2) format('woff2');
+            //     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+            //   }
+            //   /* latin-ext */
+            //   @font-face {
+            //     font-family: 'Comforter';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/comforter/v1/H4clBXOCl8nQnlaql3Qq4Zu9uqc.woff2) format('woff2');
+            //     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            //   }
+            //   /* latin */
+            //   @font-face {
+            //     font-family: 'Comforter';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/comforter/v1/H4clBXOCl8nQnlaql3Qq75u9.woff2) format('woff2');
+            //     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            //   }
+            //   /* latin-ext */
+            //   @font-face {
+            //     font-family: 'Sora';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/sora/v3/xMQOuFFYT72X5wkB_18qmnndmSdSnk-DKQJRBg.woff2) format('woff2');
+            //     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            //   }
+            //   /* latin */
+            //   @font-face {
+            //     font-family: 'Sora';
+            //     font-style: normal;
+            //     font-weight: 400;
+            //     font-display: swap;
+            //     src: url(https://fonts.gstatic.com/s/sora/v3/xMQOuFFYT72X5wkB_18qmnndmSdSnk-NKQI.woff2) format('woff2');
+            //     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            //   }`,
+            // },
             colors: {
               // botBackground: "gray",
               // botBubbleColor: "red",
@@ -63,7 +133,7 @@ export default function Home() {
           },
           bot: {
             borderRadius: "10px",
-            fontFamily: "courier",
+            //fontFamily: "courier",
             // bubbleFontSize: "20px",
             // bubbleMaxWidth: "100%",
             // bubbleBoxShadow: "0 3px 5px 0 rgba(0, 0, 0, 0.90)",
@@ -84,9 +154,10 @@ export default function Home() {
             // disableAvatars: true,
             // allowRestartOnEnd: false,
             // bubbleAnimationDuration: "0.5s",
-            maxBotColumnSize: "800px",
+            // maxBotColumnSize: "800px",
             // minBotColumnSize: "300px",
-            avatarClock: false,
+            avatarClock: true,
+            //jsonViewerTheme: "solarized",
           },
         }}
         width="100%"
@@ -200,7 +271,7 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
-      <script src="http://localhost:9000/dumbot-distribute.js" />
+      <script src="http://localhost:6789/dumbot-client.bundle.js" />
       {/* <script
         SameSite="None; Secure"
         src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"
