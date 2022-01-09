@@ -5,14 +5,16 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [Dumbot, setDumbot] = React.useState(null);
+  // React.useEffect(() => {
+  //   var myLandbot = new Landbot.Popup({
+  //     configUrl:
+  //       "https://chats.landbot.io/v3/H-1050454-W9M72A1TJ2OV4S7A/index.json",
+  //   });
+  // });
   React.useEffect(() => {
-    // rgb(0 0 0 / 20%) 0px -1px 14px 0px
-    // var myLandbot = new Landbot.Livechat({
-    //   configUrl:
-    //     "https://chats.landbot.io/v3/H-1012257-80E97G8O8QQ65MYF/index.json",
-    // });
-  });
-  React.useEffect(() => {
+    if (!DumbotExtApp) {
+      return;
+    }
     let DumbotC = DumbotExtApp.driver("react", {
       React: React,
       ReactDOM: ReactDOM,
@@ -162,6 +164,7 @@ export default function Home() {
         }}
         width="100%"
         height="100%"
+        saveBotProgress={false}
         onCallHost={async () => {
           const res = await fetch("https://gorest.co.in/public/v1/users");
           return await res.json();
@@ -272,6 +275,7 @@ export default function Home() {
         </a>
       </footer>
       <script src="http://localhost:6789/dumbot-client.bundle.js" />
+      {/* <script src="https://dumbot-app-7e5ky.ondigitalocean.app/dumbot-client.bundle.js?egreertret" /> */}
       {/* <script
         SameSite="None; Secure"
         src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"
