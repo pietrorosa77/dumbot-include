@@ -28,7 +28,7 @@ export default function Home() {
         trigger={{
           size: "30px",
         }}
-        mode="popup"
+        mode="full"
         externalVariables={{
           test: {
             names: ["pietro", "tommaso", "filippo"],
@@ -134,7 +134,7 @@ export default function Home() {
             },
           },
           bot: {
-            borderRadius: "10px",
+            borderRadius: "20px",
             //fontFamily: "courier",
             // bubbleFontSize: "20px",
             // bubbleMaxWidth: "100%",
@@ -259,7 +259,9 @@ export default function Home() {
             </p>
           </a>
 
-          <div id="botContainer">{Dumbot}</div>
+          <div id="botContainer" style={{ width: "500px", height: "500px" }}>
+            {Dumbot}
+          </div>
           {/* <div id="botContainer" className="dumbor-container closed"></div> */}
         </div>
       </main>

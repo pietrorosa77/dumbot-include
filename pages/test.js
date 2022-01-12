@@ -12,7 +12,7 @@ export default function Test() {
   //MkCg2zOPf_cff0ldNefCT
   const createConnection = (peer) => {
     const conn = peer.connect(
-      "dumbotuser-0fe256b0-9888-475d-8c0f-d74baf7a36e4",
+      "dumbotuser-6ec19da0-b59b-4cdb-8ba9-204b3d8ec9bd",
       {
         metadata: {
           nickname: "test",
